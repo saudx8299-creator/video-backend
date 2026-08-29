@@ -53,4 +53,3 @@ app.post("/generate-video", async (req, res) => {
 app.listen(port, () => {
   console.log(`Runway server running on port ${port}`);
 });
-update runway server
