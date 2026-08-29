@@ -6,6 +6,9 @@ const cors = require("cors");
 app.use(cors());
 app.use(express.json());
 
+// إضافة fetch لأن Node في Render ما يدعمه تلقائيًا
+const fetch = require("node-fetch");
+
 app.get("/", (req, res) => {
   res.send("Runway Server is running!");
 });
@@ -39,6 +42,7 @@ app.post("/generate-video", async (req, res) => {
     });
 
   } catch (error) {
+    console.error(error);
     res.json({
       success: false,
       error: "خطأ أثناء توليد الفيديو"
