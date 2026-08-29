@@ -11,6 +11,18 @@ app.use(express.json());
 app.get('/', (req, res) => {
   res.send('Server is running successfully!');
 });
+app.post('/generate-video', (req, res) => {
+  const { prompt, aspectRatio, style } = req.body;
+
+  // رد تجريبي فقط — لاحقًا نضيف توليد الفيديو الحقيقي
+  res.json({
+    success: true,
+    downloadUrl: "https://example.com/video.mp4",
+    prompt,
+    aspectRatio,
+    style
+  });
+});
 
 // تشغيل الخادم
 app.listen(port, () => {
